@@ -32,8 +32,9 @@
   html {
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
+    overflow-x: hidden;
   }
-  html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
+  html, body { width: 100%; max-width: 100%; }
 
   body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -45,10 +46,9 @@
     flex-direction: column;
     align-items: center;
     -webkit-font-smoothing: antialiased;
-    overscroll-behavior-y: none;
   }
 
-  button, input { touch-action: manipulation; }
+  .roll-btn, .secondary-btn, .lookup-btn, .back-btn { touch-action: manipulation; }
 
   header {
     width: 100%;
@@ -90,43 +90,43 @@
     width: 100%;
     background: var(--tint);
     border: 1px solid var(--edge);
-    border-radius: 18px;
-    padding: 20px 22px;
+    border-radius: 16px;
+    padding: 15px 17px;
     text-align: left;
     cursor: pointer;
     font-family: inherit;
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 15px;
     position: relative;
     transition: transform 0.14s ease, box-shadow 0.18s ease, filter 0.18s ease;
     -webkit-tap-highlight-color: transparent;
   }
   @media (hover: hover) {
-    .cat-card:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(45,45,45,0.12); filter: saturate(1.06); }
-    .cat-card:hover .die { transform: rotate(-8deg) scale(1.05); }
+    .cat-card:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(45,45,45,0.10); filter: saturate(1.05); }
+    .cat-card:hover .die { transform: rotate(-8deg); }
   }
   .cat-card:active { transform: scale(0.99); }
 
   .die {
     flex: 0 0 auto;
-    width: 48px; height: 48px;
-    border-radius: 13px;
+    width: 36px; height: 36px;
+    border-radius: 9px;
     background: var(--accent);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     place-items: center;
-    padding: 8px;
-    box-shadow: inset 0 -3px 0 rgba(0,0,0,0.14), 0 3px 8px rgba(45,45,45,0.16);
+    padding: 6px;
+    box-shadow: 0 1px 3px rgba(45,45,45,0.14);
     transition: transform 0.2s ease;
   }
-  .pip-dot { width: 7px; height: 7px; border-radius: 50%; background: #fff; }
+  .pip-dot { width: 5px; height: 5px; border-radius: 50%; background: #fff; }
 
   .cat-body { display: flex; flex-direction: column; min-width: 0; }
-  .cat-name { font-size: 1.12rem; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
-  .cat-desc { font-size: 0.86rem; color: var(--desc); line-height: 1.5; margin-top: 4px; }
-  .cat-count { font-size: 0.76rem; font-weight: 600; color: var(--count); margin-top: 9px; }
+  .cat-name { font-size: 1.05rem; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .cat-desc { font-size: 0.83rem; color: var(--desc); line-height: 1.45; margin-top: 3px; }
+  .cat-count { font-size: 0.73rem; font-weight: 600; color: var(--count); margin-top: 7px; }
 
   /* ---------- Activity ---------- */
   .activity { display: none; flex-direction: column; gap: 20px; }
@@ -279,10 +279,10 @@
     .logo-img { max-width: 70%; }
     header h1 { letter-spacing: 0.16em; }
     main { padding-top: 22px; }
-    .cat-card { gap: 14px; padding: 17px 18px; }
-    .die { width: 42px; height: 42px; padding: 7px; }
-    .pip-dot { width: 6px; height: 6px; }
-    .cat-name { font-size: 1.04rem; }
+    .cat-card { gap: 13px; padding: 14px 16px; }
+    .die { width: 34px; height: 34px; padding: 5px; }
+    .pip-dot { width: 5px; height: 5px; }
+    .cat-name { font-size: 1rem; }
     .stage { padding: 26px 18px; }
     .prompt-text { font-size: 1.15rem; }
   }
@@ -290,9 +290,11 @@
   /* Tablets and up (iPad) */
   @media (min-width: 700px) {
     main { max-width: 600px; padding-top: 34px; }
-    .cat-card { padding: 24px 26px; }
-    .cat-name { font-size: 1.2rem; }
-    .cat-desc { font-size: 0.9rem; }
+    .cat-card { padding: 18px 22px; }
+    .die { width: 40px; height: 40px; padding: 7px; }
+    .pip-dot { width: 6px; height: 6px; }
+    .cat-name { font-size: 1.15rem; }
+    .cat-desc { font-size: 0.88rem; }
     .prompt-text { font-size: 1.35rem; }
     .activity-title { font-size: 1.5rem; }
   }
